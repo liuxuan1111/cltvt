@@ -223,6 +223,8 @@ namespace cltvt
         }
         if (lamb_vec.back() < 0.97)
             lamb_vec.push_back(0.97);
+        if (lamb_vec.back() < 0.99)
+            lamb_vec.push_back(0.99);
 
         const BlackScholesPtr sde = BlackScholes::create(discount_rate, repo_rate, volatility, init_stock_level);
         std::vector<std::vector<double>> vt_vol_array(0);
@@ -532,4 +534,5 @@ namespace cltvt
 
         END_TEST("test_vt_vega");
     }
+
 }
